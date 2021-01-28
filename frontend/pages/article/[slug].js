@@ -65,7 +65,7 @@ export async function getStaticPaths() {
 
   return {
     paths: articles.map((article) => ({
-      params:
+      params:article.slug
       },
     })),
     fallback: false,
