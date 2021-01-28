@@ -66,7 +66,7 @@ export async function getStaticPaths() {
   return {
     paths: articles.map((article) => ({
       params:{
-        slug: article.slug
+        slug: article.tittle
       },
     })),
     fallback: false,
@@ -75,7 +75,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const articles = await fetchAPI(
-    `/articles?slug=${params.slug}&status=published`
+    `/articles?tittle=${params.tittle}&status=published`
   );
   const categories = await fetchAPI("/categories");
 
